@@ -11,7 +11,7 @@ function App() {
       <Drawer />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/products/:id' element={<Product />} />
+        <Route path='/products/:slug' element={<Product />} />
       </Routes>
     </div>
   )

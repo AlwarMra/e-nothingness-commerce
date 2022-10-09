@@ -8,6 +8,7 @@
 
   --dark: 44, 44, 44;
   --light: 252, 252, 252;
+
   --alpha: 255, 95, 95;
   --beta: 43, 179, 192;
 
@@ -15,6 +16,7 @@
   --main-light: rgb(var(--light), 1);
   --accent-alpha: rgb(var(--alpha), 1);
   --accent-beta: rgb(var(--beta), 1);
+  --grey: #dddbdd;
 
   color: var(--main-dark);
   background-color: var(--main-light);

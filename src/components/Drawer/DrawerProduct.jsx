@@ -8,11 +8,17 @@ const DrawerProduct = ({
   addToCart,
   substractFromCart,
   removeFromCart,
+  switchModal,
 }) => {
   const price = toEuro(prod.price)
   return (
     <div className='drawer__product'>
-      <Link to={`/products/${prod.slug}`} className='drawer__product__img'>
+      <Link
+        to={`/products/${prod.slug}`}
+        state={{ id: prod.id }}
+        className='drawer__product__img'
+        onClick={() => switchModal(true)}
+      >
         <img src={prod.image} alt={prod.name} />
       </Link>
       <div className='drawer__product__info'>

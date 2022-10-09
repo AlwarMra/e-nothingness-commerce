@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import Store from '../../context/StoreContext'
 import CartIcon from '../Icons/CartIcon'
 import './Header.css'
@@ -12,7 +13,7 @@ const Header = () => {
       <div className='container'>
         <div className='header__content'>
           <div className='header__middle'>
-            <p>E-NOTHINGNESS</p>
+            <Link to='/'>E-NOTHINGNESS</Link>
           </div>
           <div className='header__right'>
             <span

@@ -32,6 +32,7 @@ const Drawer = () => {
               addToCart={dispatchAddToCart}
               substractFromCart={dispatchSubstractFromCart}
               removeFromCart={dispatchRemoveFromCart}
+              switchModal={switchModal}
             />
           ))}
         </div>
