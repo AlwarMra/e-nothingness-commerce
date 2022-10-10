@@ -1,11 +1,12 @@
-const url = import.meta.env.VITE_BACKEND_URI
+import { URL } from './settings'
 
 export default function getProducts() {
-  return fetch(`${url}api/products`)
+  return fetch(`${URL}api/products`)
     .then(res => {
       return res.json()
     })
     .then(res => {
+      console.log(res)
       return res
     })
 }

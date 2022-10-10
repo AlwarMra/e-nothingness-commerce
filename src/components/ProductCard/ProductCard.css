@@ -14,3 +14,41 @@
 .card__btn__container {
   margin-top: 1rem;
 }
+.card__btn {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  padding: 10px 5px;
+  color: var(--main-light);
+  background-color: var(--accent-beta);
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+.card__btn:before {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  background-color: var(--accent-alpha);
+  transform-origin: right center;
+  transform: scaleX(0);
+}
+.card__btn:hover {
+  color: var(--main-light);
+}
+.card__btn:hover:before {
+  transform-origin: left center;
+  transform: scale(1);
+}
+.card__btn span {
+  position: relative;
+  color: inherit;
+  z-index: var(--z1);
+}

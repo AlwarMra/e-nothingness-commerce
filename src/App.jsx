@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Home, Product } from './pages/index'
+import { Home, Product, SignIn, Register } from './pages/index'
 import { Header, Drawer, Overlay } from './components/index'
 
 function App() {
@@ -12,6 +12,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products/:slug' element={<Product />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </div>
   )

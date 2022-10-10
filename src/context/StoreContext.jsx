@@ -14,16 +14,17 @@ const ACTIONS = {
   ADD_TO_CART: 'add_to_cart',
   SUBSTRACT_FROM_CART: 'substract_from_cart',
   REMOVE_FROM_CART: 'remove_from_cart',
+  CLEAR_CART: 'clear_cart',
 }
 const initialState = {
   cart: {
     showModal: false,
     cartItems: JSON.parse(window.localStorage.getItem(cartStorage)) || [],
     totalQuantity: calculateTotalQuantity(
-      JSON.parse(window.localStorage.getItem(cartStorage)) || [],
+      JSON.parse(window.localStorage.getItem(cartStorage)) || 0,
     ),
     totalPrice: calculateTotalPrice(
-      JSON.parse(window.localStorage.getItem(cartStorage)) || [],
+      JSON.parse(window.localStorage.getItem(cartStorage)) || 0,
     ),
   },
 }
@@ -73,6 +74,13 @@ function reducer(state, action) {
       return {
         ...state,
         cart: { ...state.cart, cartItems, totalQuantity: q, totalPrice: p },
+      }
+    }
+
+    case ACTIONS.CLEAR_CART: {
+      return {
+        ...state,
+        cart: { ...state.cart, cartItems: [], totalPrice: 0, totalQuantity: 0 },
       }
     }
 

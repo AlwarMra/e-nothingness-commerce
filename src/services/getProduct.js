@@ -1,7 +1,7 @@
-const url = import.meta.env.VITE_BACKEND_URI
+import { URL } from './settings'
 
 function getProductBySlug(slug) {
-  return fetch(`${url}api/products/slug/${slug}`)
+  return fetch(`${URL}api/products/slug/${slug}`)
     .then(res => {
       return res.json()
     })
@@ -11,7 +11,7 @@ function getProductBySlug(slug) {
 }
 
 function getProductById(slug) {
-  return fetch(`${url}api/products/${slug}`)
+  return fetch(`${URL}api/products/${slug}`)
     .then(res => {
       return res.json()
     })

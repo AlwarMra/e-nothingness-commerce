@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import Store from '../../context/StoreContext'
-import './Buttons.css'
+import Spinner from '../UXElements/Spinner'
 const AddButton = ({ product }) => {
   const { dispatchAddToCart } = useContext(Store)
   const [adding, setAdding] = useState(false)
@@ -20,12 +20,7 @@ const AddButton = ({ product }) => {
     </button>
   ) : (
     <button className='card__btn'>
-      <div className='spinner'>
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
+      <Spinner />
     </button>
   )
 }

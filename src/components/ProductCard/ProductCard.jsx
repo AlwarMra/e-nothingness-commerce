@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { toEuro } from '../../utils'
-import AddButton from '../Buttons/AddButton'
+import AddButton from './AddButton'
 import './ProductCard.css'
 
 const ProductCard = ({ prod }) => {
