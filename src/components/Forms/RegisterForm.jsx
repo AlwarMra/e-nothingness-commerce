@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import useUser from '../../hooks/useUser'
 import Spinner from '../UXElements/Spinner'
+import useUser from '../../hooks/useUser'
+
 import './Forms.css'
 
 const SignInForm = () => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -12,13 +13,23 @@ const SignInForm = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    submitSignIn({ email, password })
+    submitSignIn({ email, password, name, isSigning: false })
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit} className='form'>
-        <h1 className='form__title'>Sign In for nothing</h1>
+        <h1 className='form__title'>Register for nothing</h1>
+        <label htmlFor='name'>
+          <span className='label__span'>Name</span>
+          <input
+            type='name'
+            name='name'
+            id='name'
+            required
+            onChange={e => setName(e.target.value)}
+          />
+        </label>
         <label htmlFor='email'>
           <span className='label__span'>Email</span>
           <input
@@ -42,7 +53,7 @@ const SignInForm = () => {
         </label>
         {!loading ? (
           <button type='submit' className='form__btn'>
-            Sign in
+            Register
           </button>
         ) : (
           <div className='form__btn'>
@@ -50,12 +61,6 @@ const SignInForm = () => {
           </div>
         )}
         {error && <p className='form__error'>{error}</p>}
-        <p className='form__info'>
-          New customer?{' '}
-          <Link to='/register' className=''>
-            Register
-          </Link>
-        </p>
       </form>
     </div>
   )
