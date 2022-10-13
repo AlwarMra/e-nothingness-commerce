@@ -5,7 +5,7 @@ import CartIcon from '../Icons/CartIcon'
 import './Header.css'
 
 const Header = () => {
-  const { state, switchModal } = useContext(Store)
+  const { state, dispatch, ACTIONS } = useContext(Store)
   const totalQ = state.cart.totalQuantity
 
   return (
@@ -18,7 +18,12 @@ const Header = () => {
           <div className='header__right'>
             <span
               className='header__icon'
-              onClick={() => switchModal(!state.cart.showModal)}
+              onClick={() =>
+                dispatch({
+                  type: ACTIONS.SHOW_CART,
+                  payload: !state.cart.showModal,
+                })
+              }
             >
               {totalQ > 0 && <span className='header__icon__q'>{totalQ}</span>}
               <CartIcon />

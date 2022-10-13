@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom'
 import { toEuro } from '../../utils'
 import RemoveIcon from '../Icons/RemoveIcon'
 
-const DrawerProduct = ({
-  prod,
-  addToCart,
-  substractFromCart,
-  removeFromCart,
-  switchModal,
-}) => {
+const DrawerProduct = ({ prod, actions, dispatch }) => {
   const price = toEuro(prod.price)
   return (
     <div className='drawer__product'>
@@ -17,7 +11,7 @@ const DrawerProduct = ({
         to={`/products/${prod.slug}`}
         state={{ id: prod.id }}
         className='drawer__product__img'
-        onClick={() => switchModal(true)}
+        onClick={() => dispatch({ type: actions.SHOW_CART, payload: true })}
       >
         <img src={prod.image} alt={prod.name} />
       </Link>
@@ -29,13 +23,33 @@ const DrawerProduct = ({
           <table className='drawer__product__table'>
             <tbody>
               <tr>
-                <td onClick={() => substractFromCart(prod)}>-</td>
+                <td
+                  onClick={() =>
+                    dispatch({
+                      type: actions.SUBSTRACT_FROM_CART,
+                      payload: prod,
+                    })
+                  }
+                >
+                  -
+                </td>
                 <td>{prod.q}</td>
-                <td onClick={() => addToCart(prod)}>+</td>
+                <td
+                  onClick={() =>
+                    dispatch({ type: actions.ADD_TO_CART, payload: prod })
+                  }
+                >
+                  +
+                </td>
               </tr>
             </tbody>
           </table>
-          <span className='drawer__remove' onClick={() => removeFromCart(prod)}>
+          <span
+            className='drawer__remove'
+            onClick={() =>
+              dispatch({ type: actions.REMOVE_FROM_CART, payload: prod })
+            }
+          >
             <RemoveIcon />
           </span>
         </div>

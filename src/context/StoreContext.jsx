@@ -106,39 +106,10 @@ function reducer(state, action) {
 export function StoreContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const switchModal = show => {
-    dispatch({
-      type: ACTIONS.SHOW_CART,
-      payload: show,
-    })
-  }
-
-  const dispatchAddToCart = item => {
-    dispatch({
-      type: ACTIONS.ADD_TO_CART,
-      payload: item,
-    })
-  }
-  const dispatchSubstractFromCart = item => {
-    dispatch({
-      type: ACTIONS.SUBSTRACT_FROM_CART,
-      payload: item,
-    })
-  }
-  const dispatchRemoveFromCart = item => {
-    dispatch({
-      type: ACTIONS.REMOVE_FROM_CART,
-      payload: item,
-    })
-  }
   const value = {
-    state,
-    dispatch,
     ACTIONS,
-    switchModal,
-    dispatchAddToCart,
-    dispatchSubstractFromCart,
-    dispatchRemoveFromCart,
+    dispatch,
+    state,
   }
   return <Store.Provider value={value}>{children}</Store.Provider>
 }

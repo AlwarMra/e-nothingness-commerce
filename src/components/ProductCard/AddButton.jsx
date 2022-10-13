@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import Store from '../../context/StoreContext'
 import Spinner from '../UXElements/Spinner'
 const AddButton = ({ product }) => {
-  const { dispatchAddToCart } = useContext(Store)
+  const { dispatch, ACTIONS } = useContext(Store)
   const [adding, setAdding] = useState(false)
 
   return !adding ? (
@@ -11,7 +11,7 @@ const AddButton = ({ product }) => {
       onClick={() => {
         setAdding(prev => !prev)
         setTimeout(() => {
-          dispatchAddToCart(product)
+          dispatch({ type: ACTIONS.ADD_TO_CART, payload: product })
           setAdding(prev => !prev)
         }, 1000)
       }}

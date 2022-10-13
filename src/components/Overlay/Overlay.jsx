@@ -3,15 +3,14 @@ import Store from '../../context/StoreContext'
 import './Overlay.css'
 
 const Overlay = () => {
-  const { state, switchModal } = useContext(Store)
-  const closeModal = () => {
-    switchModal(!state.cart.showModal)
-  }
+  const { state, ACTIONS, dispatch } = useContext(Store)
   return (
     <div
       className='overlay'
       aria-hidden={state.cart.showModal}
-      onClick={closeModal}
+      onClick={() =>
+        dispatch({ type: ACTIONS.SHOW_CART, payload: !state.cart.showModal })
+      }
     />
   )
 }

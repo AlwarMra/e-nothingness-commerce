@@ -5,13 +5,7 @@ import './Drawer.css'
 import DrawerProduct from './DrawerProduct'
 
 const Drawer = () => {
-  const {
-    state,
-    switchModal,
-    dispatchAddToCart,
-    dispatchSubstractFromCart,
-    dispatchRemoveFromCart,
-  } = useContext(Store)
+  const { state, ACTIONS, dispatch } = useContext(Store)
 
   const items = state.cart.cartItems
   const totalPrice = toEuro(state.cart.totalPrice)
@@ -19,7 +13,9 @@ const Drawer = () => {
     <div className='drawer' data-drawer={state.cart.showModal}>
       <div
         className='drawer__header'
-        onClick={() => switchModal(!state.cart.showModal)}
+        onClick={() =>
+          dispatch({ type: ACTIONS.SHOW_CART, payload: !state.cart.showModal })
+        }
       >
         CART
       </div>
@@ -29,10 +25,8 @@ const Drawer = () => {
             <DrawerProduct
               prod={item}
               key={item.id}
-              addToCart={dispatchAddToCart}
-              substractFromCart={dispatchSubstractFromCart}
-              removeFromCart={dispatchRemoveFromCart}
-              switchModal={switchModal}
+              actions={ACTIONS}
+              dispatch={dispatch}
             />
           ))}
         </div>
