@@ -25,6 +25,7 @@ const Product = () => {
           </div>
           <div className='product__info'>
             <h1 className='product__name'>{product.name}</h1>
+            <p className='product__vendor'>Produced by: {product.vendor}</p>
             <p className='product__description'>{product.description}</p>
             <div className='product__buttons'>
               <AddButton product={product} />

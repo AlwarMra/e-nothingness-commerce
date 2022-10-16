@@ -6,7 +6,6 @@ export default function getProducts() {
       return res.json()
     })
     .then(res => {
-      console.log(res)
       return res
     })
 }

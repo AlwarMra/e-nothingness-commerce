@@ -40,7 +40,7 @@ function reducer(state, action) {
     case ACTIONS.SHOW_CART:
       return {
         ...state,
-        cart: { ...state.cart, showModal: !state.cart.showModal },
+        cart: { ...state.cart, showModal: action.payload },
       }
     case ACTIONS.ADD_TO_CART: {
       const modal = !state.cart.showModal || true

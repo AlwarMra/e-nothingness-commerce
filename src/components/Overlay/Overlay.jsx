@@ -8,9 +8,7 @@ const Overlay = () => {
     <div
       className='overlay'
       aria-hidden={state.cart.showModal}
-      onClick={() =>
-        dispatch({ type: ACTIONS.SHOW_CART, payload: !state.cart.showModal })
-      }
+      onClick={() => dispatch({ type: ACTIONS.SHOW_CART, payload: false })}
     />
   )
 }

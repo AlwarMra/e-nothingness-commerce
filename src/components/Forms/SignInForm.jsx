@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import useUser from '../../hooks/useUser'
 import Spinner from '../UXElements/Spinner'
 import './Forms.css'
@@ -7,18 +7,28 @@ import './Forms.css'
 const SignInForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [beforeCheckout, setBeforeCheckout] = useState(false)
+  const [searchParams] = useSearchParams()
 
-  const { submitSignIn, loading, error } = useUser()
+  const { submitUser, loading, error } = useUser()
 
   function handleSubmit(e) {
     e.preventDefault()
-    submitSignIn({ email, password })
+    submitUser({ email, password, checkout: true })
   }
+  useEffect(() => {
+    setBeforeCheckout(searchParams.get('checkout'))
+  }, [])
 
   return (
     <div>
       <form onSubmit={handleSubmit} className='form'>
         <h1 className='form__title'>Sign In for nothing</h1>
+        {beforeCheckout && (
+          <p className='form__advise'>
+            Please, Sign In before proceding to checkout
+          </p>
+        )}
         <label htmlFor='email'>
           <span className='label__span'>Email</span>
           <input

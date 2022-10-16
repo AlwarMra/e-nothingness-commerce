@@ -13,6 +13,15 @@
   align-items: center;
   justify-content: center;
 }
+.header__middle {
+  font-family: 'Autour One', cursive;
+}
+.header__title {
+  font-family: var(--secondary-font);
+  text-decoration: none;
+  color: var(--main-dark);
+  font-size: 1.2rem;
+}
 .header__right {
   text-align: right;
 }

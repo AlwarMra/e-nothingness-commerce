@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Store from '../context/StoreContext'
 import signIn from '../services/signIn.js'
 import register from '../services/register.js'
+import useCheckout from './useCheckout'
 
 export default function useUser() {
   const NAVIGATE_TO = '/'
@@ -11,22 +12,29 @@ export default function useUser() {
 
   const { state, dispatch, ACTIONS } = useContext(Store)
   const navigate = useNavigate()
+  const { submitCheckout } = useCheckout()
 
-  const submitSignIn = useCallback(
-    ({ email, password, name, isSigning }) => {
+  const submitUser = useCallback(
+    async ({ email, password, name, isSigning = true, checkout = false }) => {
       const userAction = isSigning ? signIn : register
       setError(false)
       setLoading(true)
+
       setTimeout(() => {
         userAction({ email, password, name }).then(res => {
-          console.log(res)
           if (res.err) return setError(res.message)
           dispatch({
             type: ACTIONS.SIGN_IN,
             payload: res,
           })
-          navigate(NAVIGATE_TO)
+          return checkout
+            ? submitCheckout({
+                user: res,
+                items: state.cart.cartItems,
+              })
+            : navigate(NAVIGATE_TO)
         })
+
         setLoading(false)
       }, 1000)
     },
@@ -42,6 +50,6 @@ export default function useUser() {
   return {
     error,
     loading,
-    submitSignIn,
+    submitUser,
   }
 }

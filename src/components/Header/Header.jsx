@@ -13,7 +13,9 @@ const Header = () => {
       <div className='container'>
         <div className='header__content'>
           <div className='header__middle'>
-            <Link to='/'>E-NOTHINGNESS</Link>
+            <Link className='header__title' to='/'>
+              E-NOTHINGNESS
+            </Link>
           </div>
           <div className='header__right'>
             <span

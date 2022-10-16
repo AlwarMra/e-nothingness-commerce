@@ -9,11 +9,11 @@ const SignInForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { submitSignIn, loading, error } = useUser()
+  const { submitUser, loading, error } = useUser()
 
   function handleSubmit(e) {
     e.preventDefault()
-    submitSignIn({ email, password, name, isSigning: false })
+    submitUser({ email, password, name, isSigning: false })
   }
 
   return (
