@@ -12,6 +12,7 @@ const AddButton = ({ product }) => {
         setAdding(prev => !prev)
         setTimeout(() => {
           dispatch({ type: ACTIONS.ADD_TO_CART, payload: product })
+          dispatch({ type: ACTIONS.SHOW_CART, payload: true })
           setAdding(prev => !prev)
         }, 1000)
       }}

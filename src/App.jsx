@@ -7,7 +7,7 @@ import {
   SignIn,
   Register,
   CheckoutSuccess,
-  CheckoutCancel,
+  Cart,
 } from './pages/index'
 import { Header, Drawer, Overlay } from './components/index'
 
@@ -17,14 +17,14 @@ function App() {
     <div className='App'>
       <Overlay />
       <Header />
-      <Drawer />
+      {location.pathname.replace(/\//g, '') !== 'cart' && <Drawer />}
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />} />
         <Route path='/products/:slug' element={<Product />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/cart' element={<Cart />} />
         <Route path='/checkout_success' element={<CheckoutSuccess />} />
-        <Route path='/checkout_cancel' element={<CheckoutCancel />} />
       </Routes>
     </div>
   )

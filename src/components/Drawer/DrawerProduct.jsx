@@ -35,9 +35,10 @@ const DrawerProduct = ({ prod, actions, dispatch }) => {
                 </td>
                 <td>{prod.q}</td>
                 <td
-                  onClick={() =>
+                  onClick={() => {
                     dispatch({ type: actions.ADD_TO_CART, payload: prod })
-                  }
+                    dispatch({ type: actions.SHOW_CART, payload: true })
+                  }}
                 >
                   +
                 </td>
@@ -58,4 +59,4 @@ const DrawerProduct = ({ prod, actions, dispatch }) => {
   )
 }
 
-export default DrawerProduct
+export default React.memo(DrawerProduct)

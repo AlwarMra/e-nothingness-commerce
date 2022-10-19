@@ -43,7 +43,6 @@ function reducer(state, action) {
         cart: { ...state.cart, showModal: action.payload },
       }
     case ACTIONS.ADD_TO_CART: {
-      const modal = !state.cart.showModal || true
       const item = { ...action.payload, q: 1 }
       const cartItems = addToCart(item, state.cart.cartItems)
       const q = calculateTotalQuantity(cartItems)
@@ -54,7 +53,6 @@ function reducer(state, action) {
         cart: {
           ...state.cart,
           cartItems,
-          showModal: modal,
           totalQuantity: q,
           totalPrice: p,
         },

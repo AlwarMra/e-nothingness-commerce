@@ -1,0 +1,45 @@
+.items__table thead th {
+  font-family: var(--secondary-font);
+}
+.items__table {
+  width: 100%;
+  margin-top: 3rem;
+  border-collapse: collapse;
+}
+.items__table thead {
+  border-bottom: 1pt solid var(--accent-beta);
+}
+.items__table tr {
+  text-align: center;
+}
+.items__table td {
+  vertical-align: middle;
+  padding: 0.5rem 0;
+}
+.items__table a {
+  text-decoration: none;
+  color: var(--main-dark);
+}
+.items__table .item__info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: left;
+}
+.items__table .item__info .item__title {
+  margin-left: 1rem;
+}
+.items__table img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+.cart__item__table {
+  margin: 0 auto;
+}
+.items__table .item__table__cell {
+  padding: 4px 8px;
+}
+.underline {
+  border: 1px solid var(--accent-beta);
+}

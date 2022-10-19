@@ -1,0 +1,13 @@
+.drawer__btn {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  padding: 10px 5px;
+  color: var(--main-light);
+  background-color: var(--accent-beta);
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}

@@ -184,7 +184,9 @@ h6 {
   margin: 0 auto;
   max-width: 1024px;
 }
-
+.inner__padding {
+  padding: 1rem;
+}
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
