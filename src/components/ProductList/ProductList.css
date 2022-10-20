@@ -1,4 +1,11 @@
-.productList {
+.product__list {
+  margin-bottom: 5rem;
+}
+.product__list__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+}
+.product__list__title {
+  text-align: center;
+  font-size: 1.5rem;
 }

@@ -12,10 +12,13 @@ const ProductList = () => {
   }, [])
 
   return (
-    <div className='container productList'>
-      {products.map(prod => (
-        <ProductCard key={prod.id} prod={prod} />
-      ))}
+    <div className='container product__list'>
+      <h2 className='product__list__title'>Our products</h2>
+      <div className='product__list__grid'>
+        {products.map(prod => (
+          <ProductCard key={prod.id} prod={prod} />
+        ))}
+      </div>
     </div>
   )
 }
