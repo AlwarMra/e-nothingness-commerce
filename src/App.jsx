@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import usePathName from './hooks/usePathName'
+import usePathName from './hooks/usePathname'
 import {
   Home,
   Product,
