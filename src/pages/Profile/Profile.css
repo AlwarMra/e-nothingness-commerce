@@ -1,0 +1,23 @@
+.profile {
+  padding: 1rem;
+}
+.profile_orders {
+  margin-top: 3rem;
+}
+.profile_order {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-bottom: 1px solid var(--accent-beta);
+}
+.profile_order a {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+.order_highlight {
+  font-family: var(--secondary-font);
+}

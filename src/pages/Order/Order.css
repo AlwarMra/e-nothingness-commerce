@@ -2,7 +2,13 @@
   margin-top: 5rem;
   padding: 1rem;
 }
-.checkout__text {
+.checkout_link {
+  display: inline-block;
+  text-decoration-style: double;
+  margin-bottom: 1rem;
+  color: var(--accent-beta);
+}
+.checkout_text {
   font-family: var(--secondary-font);
 }
 .checkout_loading,

@@ -8,8 +8,10 @@ import {
   Register,
   CheckoutSuccess,
   Cart,
+  Profile,
+  Order,
 } from './pages/index'
-import { Header, Drawer, Overlay } from './components/index'
+import { Header, Drawer, Overlay, PrivateRoute } from './components/index'
 
 function App() {
   const { location } = usePathName()
@@ -24,7 +26,31 @@ function App() {
         <Route path='/signin' element={<SignIn />} />
         <Route path='/register' element={<Register />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/checkout_success' element={<CheckoutSuccess />} />
+
+        <Route
+          path='/checkout_success'
+          element={
+            <PrivateRoute>
+              <CheckoutSuccess />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/profile'
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/profile/order/:id'
+          element={
+            <PrivateRoute>
+              <Order />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   )

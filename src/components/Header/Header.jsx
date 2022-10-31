@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Store from '../../context/StoreContext'
 import CartIcon from '../Icons/CartIcon'
+import UserIcon from '../Icons/UserIcon'
 import './Header.css'
 
 const Header = () => {
@@ -18,6 +19,17 @@ const Header = () => {
             </Link>
           </div>
           <div className='header__right'>
+            <span className='header__icon'>
+              {state.user !== null ? (
+                <Link to='/profile'>
+                  <UserIcon />
+                </Link>
+              ) : (
+                <Link to='/signin'>
+                  <UserIcon />
+                </Link>
+              )}
+            </span>
             {location.pathname.replace(/\//g, '') !== 'cart' && (
               <span
                 className='header__icon'

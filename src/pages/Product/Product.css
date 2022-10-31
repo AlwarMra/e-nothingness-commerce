@@ -6,6 +6,12 @@
 }
 .product__image {
   width: 100%;
+  background: radial-gradient(
+    circle,
+    var(--main-dark) 0%,
+    var(--main-light) 34%,
+    var(--main-dark) 100%
+  );
 }
 .product__image img {
   object-fit: cover;

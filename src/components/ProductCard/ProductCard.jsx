@@ -13,7 +13,9 @@ const ProductCard = ({ prod }) => {
         state={{ id: prod.id }}
         to={`/products/${prod.slug}`}
       >
-        <img className='card__image' src={prod.image} alt={prod.title} />
+        <div className='aspect-ratio-box'>
+          <img className='card__image' src={prod.image} alt={prod.title} />
+        </div>
         <h3 className='card__title'>{prod.name}</h3>
         <p className='card__price'>{price}</p>
       </Link>

@@ -4,6 +4,7 @@
 .product__list__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  margin-bottom: 5rem;
 }
 .product__list__title {
   text-align: center;

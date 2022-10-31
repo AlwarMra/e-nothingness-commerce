@@ -1,18 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { ItemsTable } from '../../components/index'
 import Store from '../../context/StoreContext'
 import getOrder from '../../services/getOrder'
-import './Checkout.css'
+import './Order.css'
 
-const CheckoutSuccess = () => {
+const Order = () => {
   const [order, setOrder] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
-  const [searchParams] = useSearchParams()
   const { state, ACTIONS, dispatch } = useContext(Store)
-  const id = searchParams.get('session_id')
-
+  const { id } = useParams()
   useEffect(() => {
     getOrder({ id, token: state.user.token })
       .then(async res => {
@@ -35,10 +33,10 @@ const CheckoutSuccess = () => {
         <div className='checkout_loading'>Loading...</div>
       ) : (
         <div className='checkout'>
-          <h1 className='checkout__title'>
-            Thank you a lot {state.user.name}!
-          </h1>
-          <p className='checkout__text'>
+          <Link className='checkout_text checkout_link' to='/profile'>
+            Go back
+          </Link>
+          <p className='checkout_text'>
             Here is your order resume, not that it matters, you just bought
             nothing:
           </p>
@@ -53,4 +51,4 @@ const CheckoutSuccess = () => {
   )
 }
 
-export default CheckoutSuccess
+export default Order
