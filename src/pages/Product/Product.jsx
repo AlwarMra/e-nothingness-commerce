@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductBySlug } from '../../services/getProduct'
-import { AddButton } from '../../components/index'
+import { AddButton, ProductSkeleton } from '../../components/index'
 import './Product.css'
 
 const Product = () => {
@@ -18,7 +18,7 @@ const Product = () => {
 
   return (
     <div className='container'>
-      {product.length !== 0 && (
+      {product.length !== 0 ? (
         <div className='product'>
           <div className='product__image'>
             <img src={product.image} alt={product.name} />
@@ -32,6 +32,8 @@ const Product = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <ProductSkeleton />
       )}
     </div>
   )

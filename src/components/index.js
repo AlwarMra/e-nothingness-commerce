@@ -11,3 +11,8 @@ export { default as Spinner } from './UXElements/Spinner'
 export { default as ItemsTable } from './Tables/ItemsTable'
 export { default as CheckoutButton } from './Buttons/CheckoutButton'
 export { default as PrivateRoute } from './PrivateRoute'
+
+// Skeletons
+export { default as OrderSkeleton } from './Skeletons/OrderSkeleton'
+export { default as CardSkeleton } from './Skeletons/CardSkeleton'
+export { default as ProductSkeleton } from './Skeletons/ProductSkeleton'
