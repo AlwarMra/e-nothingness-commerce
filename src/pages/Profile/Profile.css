@@ -1,5 +1,16 @@
+.logout {
+  display: inline-block;
+  cursor: pointer;
+}
+.logout svg {
+  width: 25px;
+}
 .profile {
   padding: 1rem;
+}
+.profile__flex {
+  display: flex;
+  justify-content: space-between;
 }
 .profile__orders {
   margin-top: 3rem;

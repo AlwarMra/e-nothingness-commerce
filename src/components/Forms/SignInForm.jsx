@@ -14,7 +14,7 @@ const SignInForm = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    submitUser({ email, password, checkout: true })
+    submitUser({ email, password })
   }
   useEffect(() => {
     setBeforeCheckout(searchParams.get('checkout'))

@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { OrderSkeleton } from '../../components'
+import Logout from '../../components/Icons/logout'
 import Store from '../../context/StoreContext'
 import getOrders from '../../services/gerOrders'
 import { toEuro, formatDate } from '../../utils'
 import './Profile.css'
 const Profile = () => {
   const [orders, setOrders] = useState([])
-  const { state } = useContext(Store)
+  const { state, ACTIONS, dispatch } = useContext(Store)
+  const navigate = useNavigate()
 
   const skeletons = Array.from({ length: 5 }, (_, i) => (
     <OrderSkeleton key={i} />
@@ -25,7 +27,18 @@ const Profile = () => {
   return (
     <div className='container'>
       <div className='profile'>
-        <h1>Welcome {state.user.name}</h1>
+        <div className='profile__flex'>
+          <h1>Welcome {state.user.name}</h1>
+          <span
+            className='logout'
+            onClick={() => {
+              dispatch({ type: ACTIONS.SIGN_OUT })
+              navigate('/')
+            }}
+          >
+            <Logout />
+          </span>
+        </div>
         <div className='profile__orders'>
           <h3>Nobody`s orders</h3>
           {orders.length === 0 ? (
