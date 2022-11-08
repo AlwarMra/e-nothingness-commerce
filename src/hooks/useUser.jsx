@@ -25,6 +25,7 @@ export default function useUser() {
             type: ACTIONS.SIGN_IN,
             payload: res,
           })
+          navigate('/profile')
         })
 
         setLoading(false)
