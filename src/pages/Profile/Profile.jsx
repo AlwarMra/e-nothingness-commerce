@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { OrderSkeleton } from '../../components'
-import Logout from '../../components/Icons/logout'
+import Logout from '../../components/Icons/Logout'
 import Store from '../../context/StoreContext'
 import getOrders from '../../services/gerOrders'
 import { toEuro, formatDate } from '../../utils'
